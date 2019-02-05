@@ -1,6 +1,7 @@
 package com.beta.server.mr.wc;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
@@ -10,6 +11,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 import java.io.IOException;
+import java.net.URI;
 
 /**
  * Created by beta on 2019/2/5.
@@ -48,8 +50,15 @@ public class WordCountApp {
         //设置输入路径
         FileInputFormat.setInputPaths(job, new Path("/wordcount/input"));
 
+        //防止重复输出
+        Path outputPath = new Path("/wordcount/output");
+        FileSystem fs = FileSystem.get(new URI("hdfs://hadoop000:8020"), conf, "hadoop");
+        if (fs.exists(outputPath)) {
+            fs.delete(outputPath, true);
+        }
+
         //设置输出路径
-        FileOutputFormat.setOutputPath(job, new Path("/wordcount/output"));
+        FileOutputFormat.setOutputPath(job, outputPath);
 
         //提交作业
         boolean rs = job.waitForCompletion(true);
