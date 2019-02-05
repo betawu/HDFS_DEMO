@@ -47,6 +47,10 @@ public class WordCountApp {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
 
+        //设置combiner
+        //为mapper端的聚合操作
+        job.setCombinerClass(WordCountReducer.class);
+
         //设置输入路径
         FileInputFormat.setInputPaths(job, new Path("/wordcount/input"));
 
