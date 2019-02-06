@@ -34,6 +34,12 @@ public class AccessApp {
         job.setOutputKeyClass(Access.class);
         job.setOutputValueClass(NullWritable.class);
 
+        //自定义分区规则
+        job.setPartitionerClass(AccessPartitioner.class);
+
+        //自定义分区个数
+        job.setNumReduceTasks(3);
+
         FileInputFormat.setInputPaths(job, new Path("input/access.txt"));
         FileOutputFormat.setOutputPath(job, new Path("output/access"));
 

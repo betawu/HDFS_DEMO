@@ -13,9 +13,3 @@ Access{phone='13922314466', up=3008, down=3720, sum=6728}
 Access{phone='13925057413', up=11058, down=48243, sum=59301}
 Access{phone='13926251106', up=240, down=0, sum=240}
 Access{phone='13926435656', up=132, down=1512, sum=1644}
-Access{phone='15013685858', up=3659, down=3538, sum=7197}
-Access{phone='15920133257', up=3156, down=2936, sum=6092}
-Access{phone='15989002119', up=1938, down=180, sum=2118}
-Access{phone='18211575961', up=1527, down=2106, sum=3633}
-Access{phone='18320173382', up=9531, down=2412, sum=11943}
-Access{phone='84138413', up=4116, down=1432, sum=5548}
