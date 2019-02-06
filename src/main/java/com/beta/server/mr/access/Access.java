@@ -80,4 +80,15 @@ public class Access implements Writable {
         this.down = dataInput.readLong();
         this.sum = dataInput.readLong();
     }
+
+    public Access() {
+    }
+
+    public Access(String phone, long up, long down) {
+        this.phone = phone;
+        this.up = up;
+        this.down = down;
+        this.sum = this.up + this.down;
+
+    }
 }
