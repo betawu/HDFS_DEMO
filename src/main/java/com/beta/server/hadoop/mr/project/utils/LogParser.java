@@ -20,6 +20,7 @@ public class LogParser {
         map.put("province", info.getProvince() == null ? "-" : info.getProvince());
         map.put("city", info.getCity() == null ? "-" : info.getCity());
 
+        map.put("url", arr[1]);
         return map;
     }
 }
